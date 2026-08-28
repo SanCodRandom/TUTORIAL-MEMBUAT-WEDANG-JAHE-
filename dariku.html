@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Yasmin 🤍</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.8), transparent 25%),
+        linear-gradient(135deg, #f8dce8, #ddd5f4, #fce8df);
+    color: #49394f;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.stars span {
+    position: fixed;
+    color: rgba(255,255,255,.8);
+    animation: floatStar 5s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes floatStar {
+    0%,100% {
+        transform: translateY(0) rotate(0);
+        opacity: .5;
+    }
+    50% {
+        transform: translateY(-20px) rotate(20deg);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.book {
+    width: min(92vw, 470px);
+    height: min(88vh, 720px);
+    position: relative;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,250,250,.94);
+    border-radius: 25px;
+    padding: 32px 27px;
+    box-shadow:
+        0 20px 50px rgba(83,55,89,.2),
+        0 5px 15px rgba(83,55,89,.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(40px) rotate(1deg) scale(.97);
+    transition: .6s ease;
+    overflow: hidden;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) rotate(0) scale(1);
+}
+
+/* paper texture */
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .25;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(180,150,170,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180,150,170,.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.page-number {
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    color: #8e668f;
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Caveat', cursive;
+    font-size: 48px;
+    line-height: 1;
+    color: #a94870;
+    margin-top: 15px;
+}
+
+.subtitle {
+    position: relative;
+    z-index: 2;
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+    color: #694d70;
+    margin-top: 12px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 17px;
+}
+
+.hand {
+    font-family: 'Caveat', cursive;
+    font-size: 25px;
+}
+
+.highlight {
+    color: #b64d76;
+    font-weight: 600;
+}
+
+.center {
+    text-align: center;
+}
+
+/* =========================
+   76 DAYS
+========================= */
+
+.number {
+    position: relative;
+    z-index: 2;
+    font-family: 'Caveat', cursive;
+    font-size: 120px;
+    line-height: .9;
+    text-align: center;
+    color: #b7466f;
+    text-shadow: 3px 3px 0 #f4c6d8;
+}
+
+.days {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    color: #694d70;
+}
+
+.date-box {
+    position: relative;
+    z-index: 2;
+    background: #f4e7f4;
+    border: 1px dashed #b987b0;
+    border-radius: 18px;
+    padding: 15px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* =========================
+   POLAROID
+========================= */
+
+.polaroid-area {
+    position: relative;
+    height: 250px;
+    margin-top: 15px;
+}
+
+.polaroid {
+    position: absolute;
+    width: 170px;
+    background: white;
+    padding: 10px 10px 35px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    transition: .4s;
+}
+
+.polaroid:first-child {
+    left: 5%;
+    transform: rotate(-8deg);
+}
+
+.polaroid:last-child {
+    right: 5%;
+    transform: rotate(8deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0) scale(1.06);
+    z-index: 5;
+}
+
+.photo {
+    width: 100%;
+    height: 175px;
+    display: block;
+    object-fit: cover;
+    background: #eee;
+}
+
+.polaroid small {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: #745775;
+}
+
+/* =========================
+   BEST FRIEND
+========================= */
+
+.quote {
+    position: relative;
+    z-index: 2;
+    background: #eadcf0;
+    padding: 25px 15px;
+    border-radius: 12px;
+    transform: rotate(-1deg);
+    text-align: center;
+    margin: 25px 0;
+}
+
+.quote-text {
+    font-family: 'Caveat', cursive;
+    font-size: 38px;
+    color: #7b4f82;
+}
+
+.quote-small {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    position: relative;
+    z-index: 2;
+    background: #fffaf5;
+    padding: 23px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(70,40,70,.1);
+    border: 1px solid #f0d9df;
+    max-height: 410px;
+    overflow-y: auto;
+}
+
+.letter::-webkit-scrollbar {
+    width: 4px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: #d59ab3;
+    border-radius: 10px;
+}
+
+.letter p {
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.signature {
+    font-family: 'Caveat', cursive;
+    font-size: 27px;
+    color: #a94870;
+    text-align: right;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.bottom {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#d96b96,#a66ab2);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 7px 20px rgba(160,80,120,.25);
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(160,80,120,.35);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.dots {
+    position: absolute;
+    bottom: 13px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 20;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d9b4c8;
+    transition: .3s;
+}
+
+.dot.active {
+    width: 20px;
+    border-radius: 10px;
+    background: #ad6386;
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    pointer-events: none;
+    animation: heartUp 5s linear forwards;
+    z-index: 100;
+}
+
+@keyframes heartUp {
+    0% {
+        transform: translateY(0) scale(.8) rotate(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.4) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope {
+    position: relative;
+    z-index: 2;
+    width: 180px;
+    height: 120px;
+    background: #e99bb8;
+    margin: 20px auto;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 12px 25px rgba(100,50,80,.18);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-top: 65px solid #f4b6ca;
+}
+
+.envelope::after {
+    content: "♡";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 42px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-height:650px) {
+    .book {
+        height: 94vh;
+    }
+
+    .page {
+        padding: 23px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .letter {
+        max-height: 310px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- background stars -->
+<div class="stars">
+    <span style="left:8%;top:12%;font-size:18px;">✦</span>
+    <span style="left:87%;top:15%;font-size:13px;">✧</span>
+    <span style="left:15%;top:80%;font-size:14px;">☆</span>
+    <span style="left:90%;top:75%;font-size:20px;">✦</span>
+    <span style="left:50%;top:7%;font-size:12px;">✧</span>
+</div>
+
+<div class="wrapper">
+
+<div class="book">
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="page active" id="page1">
+
+    <div>
+        <div class="page-number">01 / 06</div>
+
+        <div class="title">
+            Hai, Yasmin.. 🤍
+        </div>
+
+        <div class="subtitle">
+            jangan langsung ketawa ya 😭
+        </div>
+
+        <div class="content">
+
+            <p class="text">
+                Sebenarnya ada sesuatu yang dari kemarin
+                pengin aku sampaikan ke kamu.
+            </p>
+
+            <p class="text">
+                Tapi kalau ngomong langsung kayaknya
+                aku malah bakal bingung sendiri mau mulai dari mana.
+            </p>
+
+            <p class="text">
+                Jadi kali ini aku coba tulis semuanya di sini.
+                Pelan-pelan aja bacanya, Yas.
+            </p>
+
+            <p class="hand center">
+                karena ini benar-benar dari aku.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <button onclick="nextPage()">
+            lanjut, Yas ➜
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="page" id="page2">
+
+    <div>
+        <div class="page-number">02 / 06</div>
+
+        <div class="title center">
+            ternyata...
+        </div>
+
+        <div class="content">
+
+            <div class="number">76</div>
+
+            <div class="days">
+                HARI
+            </div>
+
+            <div class="date-box">
+                14 Juni 2026 • 21.39 WIB
+                <br>
+                ↓
+                <br>
+                28 Agustus 2026 • 22.12 WIB
+            </div>
+
+            <p class="text center">
+                Selama <span class="highlight">76 hari</span> itu,
+                kita ngobrol, cerita, bercanda,
+                dan saling mengenal sedikit demi sedikit.
+            </p>
+
+            <p class="hand center">
+                nggak terasa ya, Yas?
+            </p>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <button onclick="nextPage()">
+            lanjut ➜
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section class="page" id="page3">
+
+    <div>
+        <div class="page-number">03 / 06</div>
+
+        <div class="title">
+            dan hari ini...
+        </div>
+
+        <div class="content">
+
+            <p class="text">
+                Ada satu hal yang mungkin kelihatannya
+                sederhana, tapi entah kenapa cukup berarti buat aku.
+            </p>
+
+<div class="polaroid-area">
+
+    <div class="polaroid">
+        <img
+            class="photo"
+            src="https://i.supaimg.com/e432562e-c5e6-4428-b243-6410f1d7a96c/1aa9c7c9-f014-4ce7-b4af-c66fcdb0cb89.jpg"
+            alt="Foto bersama Yasmin">
+        <small>hari ini</small>
+    </div>
+
+    <div class="polaroid">
+        <img
+            class="photo"
+            src="https://i.supaimg.com/e432562e-c5e6-4428-b243-6410f1d7a96c/8d417bb8-4b04-4d6a-ab42-5df9c50fd942.jpg"
+            alt="Foto bersama Yasmin">
+        <small>bareng Yasmin</small>
+    </div>
+
+</div>
+
+            <p class="text center">
+                Kita akhirnya <span class="highlight">foto bareng.</span>
+            </p>
+
+            <p class="hand center">
+                terus kamu bilang...
+            </p>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <button onclick="nextPage()">
+            apa katanya? 👀
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="page" id="page4">
+
+    <div>
+        <div class="page-number">04 / 06</div>
+
+        <div class="title center">
+            "best friend"
+        </div>
+
+        <div class="content">
+
+            <div class="quote">
+
+                <div class="quote-text">
+                    best friend 🤍
+                </div>
+
+                <div class="quote-small">
+                    — kata Yasmin hari ini
+                </div>
+
+            </div>
+
+            <p class="text">
+                Jujur, Yas, aku senang banget dengernya.
+            </p>
+
+            <p class="text">
+                Bisa dianggap sedekat itu sama kamu
+                adalah sesuatu yang aku hargai.
+            </p>
+
+            <p class="text">
+                Tapi justru dari situ aku sadar...
+                mungkin ada sesuatu yang selama ini
+                aku simpan sendiri.
+            </p>
+
+            <p class="hand center">
+                dan kayaknya sekarang waktunya kamu tahu.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <button onclick="nextPage()">
+            buka suratnya 💌
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<section class="page" id="page5">
+
+    <div>
+        <div class="page-number">05 / 06</div>
+
+        <div class="title">
+            buat Yasmin...
+        </div>
+
+        <div class="content">
+
+            <div class="envelope" onclick="openLetter()"></div>
+
+            <p class="hand center">
+                tekan suratnya, Yas 🤍
+            </p>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <button onclick="openLetter()">
+            buka surat 💌
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 6
+========================= -->
+
+<section class="page" id="page6">
+
+    <div>
+        <div class="page-number">06 / 06</div>
+
+        <div class="title center">
+            untuk Yasmin 🤍
+        </div>
+
+        <div class="letter">
+
+            <p>
+                Yasmin, nggak kerasa ternyata udah
+                <span class="highlight">76 hari</span> kita ngobrol.
+                Dari 14 Juni pukul 21.39 WIB sampai
+                28 Agustus pukul 22.12 WIB.
+            </p>
+
+            <p>
+                Banyak banget hal yang kita lewatin selama itu.
+                Dari obrolan kecil, cerita random, bercanda,
+                sampai hal-hal sederhana yang mungkin buat orang lain
+                biasa aja, tapi buat aku ternyata punya arti sendiri.
+            </p>
+
+            <p>
+                Aku juga sebenarnya nggak tahu sejak kapan,
+                tapi selama 76 hari ini aku mulai merasa
+                kalau perasaanku ke kamu bukan cuma
+                sekadar teman.
+            </p>
+
+            <p>
+                Aku nyaman ngobrol sama kamu, Yas.
+                Aku senang bisa cerita ke kamu,
+                dengerin cerita kamu, dan sekadar tahu
+                kalau hari ini kita masih bisa ngobrol.
+            </p>
+
+            <p>
+                Dan hari ini, waktu kita foto bareng
+                lalu kamu bilang <span class="highlight">"best friend"</span>,
+                jujur aku senang banget.
+            </p>
+
+            <p>
+                Tapi di saat yang sama, aku juga makin sadar
+                kalau ternyata kamu sudah menjadi seseorang
+                yang cukup berarti buat aku.
+            </p>
+
+            <p>
+                Aku suka sama kamu, Yasmin.
+            </p>
+
+            <p>
+                Aku nggak bilang ini supaya kamu merasa
+                harus membalas perasaanku.
+                Aku juga nggak mau membuat kamu merasa terpaksa
+                untuk memberikan jawaban tertentu.
+            </p>
+
+            <p>
+                Aku cuma ingin jujur.
+                Karena setelah 76 hari yang kita lewati,
+                menurutku kamu pantas tahu
+                apa yang sebenarnya aku rasakan.
+            </p>
+
+            <p>
+                Apa pun jawaban kamu nanti,
+                aku tetap menghargai kamu,
+                menghargai semua cerita kita,
+                dan menghargai semua waktu yang sudah kita lewati.
+            </p>
+
+            <p>
+                Makasih ya, Yas,
+                sudah menjadi bagian dari 76 hari ini.
+            </p>
+
+            <div class="signature">
+                — dari seseorang yang<br>
+                beruntung bisa kenal kamu 🤍
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bottom">
+        <button onclick="createHearts();">
+            🤍
+        </button>
+    </div>
+
+</section>
+
+
+<!-- DOTS -->
+
+<div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+let currentPage = 1;
+
+function nextPage() {
+
+    if (currentPage >= 6) return;
+
+    const current = document.getElementById("page" + currentPage);
+    const next = document.getElementById("page" + (currentPage + 1));
+
+    current.classList.remove("active");
+
+    setTimeout(() => {
+        next.classList.add("active");
+    }, 100);
+
+    currentPage++;
+
+    updateDots();
+
+    if (currentPage === 2 || currentPage === 4 || currentPage === 6) {
+        createHearts();
+    }
+}
+
+
+function updateDots() {
+
+    const dots = document.querySelectorAll(".dot");
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentPage - 1
+        );
+
+    });
+
+}
+
+
+function openLetter() {
+
+    createHearts();
+
+    setTimeout(() => {
+        nextPage();
+    }, 500);
+
+}
+
+
+function createHearts() {
+
+    const hearts = [
+        "🤍",
+        "💗",
+        "♡",
+        "✨",
+        "🌸"
+    ];
+
+    for (let i = 0; i < 22; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        heart.style.fontSize =
+            (14 + Math.random() * 18) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6500);
+    }
+
+}
+
+
+/* keyboard navigation */
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "ArrowRight" && currentPage < 6) {
+        nextPage();
+    }
+
+});
+
+
+</script>
+
+</body>
+</html>
