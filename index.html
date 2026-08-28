@@ -867,18 +867,7 @@ button:active {
 
 let currentPage = 1;
 
-functfunction nextPage() {
-
-    // 🎵 Memulai musik saat Yas menekan tombol pertama
-    const music = document.getElementById("bgMusic");
-
-    if (music.paused) {
-        music.volume = 0.35;
-
-        music.play().catch(() => {
-            console.log("Musik belum bisa diputar.");
-        });
-    }
+function nextPage() {
 
     if (currentPage >= 6) return;
 
@@ -899,7 +888,6 @@ functfunction nextPage() {
         createHearts();
     }
 }
-
 
 
 function updateDots() {
