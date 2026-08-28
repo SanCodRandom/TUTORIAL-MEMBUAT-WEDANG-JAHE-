@@ -900,25 +900,6 @@ functfunction nextPage() {
     }
 }
 
-    if (currentPage >= 6) return;
-
-    const current = document.getElementById("page" + currentPage);
-    const next = document.getElementById("page" + (currentPage + 1));
-
-    current.classList.remove("active");
-
-    setTimeout(() => {
-        next.classList.add("active");
-    }, 100);
-
-    currentPage++;
-
-    updateDots();
-
-    if (currentPage === 2 || currentPage === 4 || currentPage === 6) {
-        createHearts();
-    }
-}
 
 
 function updateDots() {
